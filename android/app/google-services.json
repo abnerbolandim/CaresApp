@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "229510681403",
+    "project_id": "cares-bb29d",
+    "storage_bucket": "cares-bb29d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229510681403:android:678ff7289488321741dd1e",
+        "android_client_info": {
+          "package_name": "com.example.heath_care"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229510681403-fboqlvpg56mvqeutblf9s9qs8ns6pis5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ4wOK0QGVlQ5yklYmqyG3QxdfoyjVreQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229510681403-fboqlvpg56mvqeutblf9s9qs8ns6pis5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
