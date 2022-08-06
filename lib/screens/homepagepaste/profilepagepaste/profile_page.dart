@@ -97,17 +97,18 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     child: TextField(
                       decoration: InputDecoration(
-                          hintText: '${loggedInUser.name}',
-                          hintStyle: const TextStyle(
-                            letterSpacing: 3,
-                            color: Colors.black54,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          fillColor: Colors.white30,
-                          filled: true,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              borderSide: BorderSide.none)),
+                        hintText: '${loggedInUser.name}',
+                        hintStyle: const TextStyle(
+                          letterSpacing: 3,
+                          color: Colors.black54,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        fillColor: Colors.white30,
+                        filled: true,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide.none),
+                      ),
                     ),
                   ),
                   Material(
