@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:health_care/screens/homepagepaste/home_page.dart';
-import 'package:health_care/screens/homepagepaste/profilepagepaste/profile_page.dart';
 import 'screens/firstpages/welcome_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

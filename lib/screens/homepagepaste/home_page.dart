@@ -3,7 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:health_care/model/user_model.dart';
 import 'package:health_care/screens/creatorpages/createaccount_page.dart';
-import 'package:health_care/screens/homepagepaste/profilepagepaste/profile_page.dart';
+
+import 'screens/profile_page/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,10 +13,10 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  User? user = FirebaseAuth.instance.currentUser;
-  UserModel loggedInUser = UserModel();
+User? user = FirebaseAuth.instance.currentUser;
+UserModel loggedInUser = UserModel();
 
+class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
