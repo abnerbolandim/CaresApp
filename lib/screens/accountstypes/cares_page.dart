@@ -223,7 +223,7 @@ class _CaresPage extends State<CaresPage> {
           ),
         ),
       ),
-      bottomSheet: Row(
+      bottomNavigationBar: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(

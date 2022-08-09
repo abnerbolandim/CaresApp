@@ -180,7 +180,7 @@ class NeedCarePage extends StatelessWidget {
           ),
         ],
       ),
-      bottomSheet: Row(
+      bottomNavigationBar: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
