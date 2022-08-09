@@ -75,7 +75,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       children: [
                         Ink.image(
                           image: const AssetImage(
-                              'assets/images/registerpageimage01.png'),
+                              'assets/images/registerPage01.png'),
                           height: 250,
                           width: 250,
                           fit: BoxFit.cover,
@@ -116,7 +116,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       children: [
                         Ink.image(
                           image: const AssetImage(
-                              'assets/images/registerpageimage02.png'),
+                              'assets/images/registerPage02.png'),
                           height: 250,
                           width: 250,
                           fit: BoxFit.cover,

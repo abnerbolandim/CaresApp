@@ -43,7 +43,7 @@ class _WelcomePageState extends State<WelcomePage> {
               textAlign: TextAlign.center,
             ),
             Image.asset(
-              'assets/images/welcomepageimage01.png',
+              'assets/images/welcomePage01.png',
               height: 350,
               width: 350,
             ),

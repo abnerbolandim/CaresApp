@@ -401,8 +401,7 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.all(10),
                   child: ListTile(
-                    leading:
-                        Image.asset('assets/images/doctorhomepageimage01.png'),
+                    leading: Image.asset('assets/images/doctorHome01.png'),
                     title: const Text(
                       'Dr. Roberto Romano',
                       style: TextStyle(
@@ -432,8 +431,7 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.all(10),
                   child: ListTile(
-                    leading:
-                        Image.asset('assets/images/doctorhomepageimage02.png'),
+                    leading: Image.asset('assets/images/doctorHome02.png'),
                     title: const Text(
                       'Dra. Deolane da Silva',
                       style: TextStyle(

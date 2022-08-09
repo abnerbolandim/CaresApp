@@ -20,7 +20,7 @@ class _CreateAccountState extends State<CreateAccount> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/createaccountpageimage01.png',
+              'assets/images/createAccount01.png',
               width: 300,
               height: 300,
             ),
