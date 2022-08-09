@@ -133,7 +133,93 @@ class _ProfilePageState extends State<ProfilePage> {
                                         shape: BoxShape.circle,
                                       ),
                                       child: InkWell(
-                                        onTap: () {},
+                                        onTap: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return AlertDialog(
+                                                title: const Text(
+                                                  'Escolha uma opção',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    color: Colors.blue,
+                                                  ),
+                                                ),
+                                                content: SingleChildScrollView(
+                                                    child: ListBody(
+                                                  children: [
+                                                    InkWell(
+                                                      onTap: () {
+                                                        getImage(
+                                                          ImageSource.camera,
+                                                        );
+                                                      },
+                                                      splashColor: Colors.blue,
+                                                      child: Row(
+                                                        children: const [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    8),
+                                                            child: Icon(
+                                                              Icons.camera,
+                                                              color:
+                                                                  Colors.blue,
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            'Câmera',
+                                                            style: TextStyle(
+                                                              fontSize: 18,
+                                                              color:
+                                                                  Colors.blue,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    InkWell(
+                                                      onTap: () {
+                                                        getImage(ImageSource
+                                                            .gallery);
+                                                      },
+                                                      splashColor: Colors.blue,
+                                                      child: Row(
+                                                        children: const [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    8),
+                                                            child: Icon(
+                                                              Icons
+                                                                  .image_outlined,
+                                                              color:
+                                                                  Colors.blue,
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            'Galeria',
+                                                            style: TextStyle(
+                                                              fontSize: 18,
+                                                              color:
+                                                                  Colors.blue,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    )
+                                                  ],
+                                                )),
+                                              );
+                                            },
+                                          );
+                                        },
                                         child: const Padding(
                                           padding: EdgeInsets.all(10),
                                           child: Icon(
