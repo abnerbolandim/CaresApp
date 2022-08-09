@@ -9,8 +9,6 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../edit_page/edit_page.dart';
-
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
@@ -45,7 +43,9 @@ class _ProfilePageState extends State<ProfilePage> {
         .doc(user!.uid)
         .get()
         .then((value) {
-      loggedInUser = UserModel.fromMap(value.data());
+      loggedInUser = UserModel.fromMap(
+        value.data(),
+      );
       setState(() {});
     });
   }
@@ -76,266 +76,237 @@ class _ProfilePageState extends State<ProfilePage> {
           },
         ),
       ),
-      body: Stack(alignment: Alignment.center, children: [
-        CustomPaint(
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-          ),
-          painter: HeaderCurvedContainer(),
-        ),
-        Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(20),
-              child: Text(
-                'Perfil de Usuário',
-                style: TextStyle(
-                  fontSize: 35,
-                  letterSpacing: 1.5,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-            CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: 85.0,
-              child: uImage != null
-                  ? CircleAvatar(
-                      radius: 80.0,
-                      backgroundImage: FileImage(uImage!),
-                    )
-                  : const CircleAvatar(
-                      radius: 80.0,
-                      backgroundImage:
-                          NetworkImage("https://picsum.photos/250?image=9"),
-                      backgroundColor: Colors.transparent,
-                    ),
-            ),
-          ],
-        ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 270, left: 135),
-          child: CircleAvatar(
-            backgroundColor: Colors.blue[700],
-            child: IconButton(
-              icon: const Icon(Icons.edit),
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: const Text(
-                        'Escolha uma opção',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600, color: Colors.blue),
-                      ),
-                      content: SingleChildScrollView(
-                          child: ListBody(
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                CustomPaint(
+                  child: Column(
+                    children: [
+                      Column(
                         children: [
-                          InkWell(
-                            onTap: () {
-                              getImage(ImageSource.camera);
-                            },
-                            splashColor: Colors.blue,
-                            child: Row(
-                              children: const [
-                                Padding(
-                                  padding: EdgeInsets.all(8),
-                                  child: Icon(
-                                    Icons.camera,
-                                    color: Colors.blue,
+                          const Padding(
+                            padding: EdgeInsets.all(20),
+                            child: Text(
+                              'Perfil de Usuário',
+                              style: TextStyle(
+                                fontSize: 35,
+                                letterSpacing: 1.5,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 180,
+                            height: 180,
+                            child: Stack(
+                              children: [
+                                SizedBox(
+                                  width: 200,
+                                  height: 200,
+                                  child: CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    child: uImage != null
+                                        ? CircleAvatar(
+                                            radius: 80.0,
+                                            backgroundImage: FileImage(uImage!),
+                                          )
+                                        : const CircleAvatar(
+                                            radius: 80.0,
+                                            backgroundImage: NetworkImage(
+                                              "https://picsum.photos/250?image=9",
+                                            ),
+                                            backgroundColor: Colors.transparent,
+                                          ),
                                   ),
                                 ),
-                                Text(
-                                  'Câmera',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.w500,
+                                Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Material(
+                                    type: MaterialType.transparency,
+                                    child: Ink(
+                                      decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 73, 93, 184),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: InkWell(
+                                        onTap: () {},
+                                        child: const Padding(
+                                          padding: EdgeInsets.all(10),
+                                          child: Icon(
+                                            Icons.edit,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                          InkWell(
-                            onTap: () {
-                              getImage(ImageSource.gallery);
-                            },
-                            splashColor: Colors.blue,
-                            child: Row(
-                              children: const [
-                                Padding(
-                                  padding: EdgeInsets.all(8),
-                                  child: Icon(
-                                    Icons.image_outlined,
-                                    color: Colors.blue,
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            margin: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Column(
+                              children: [
+                                Material(
+                                  elevation: 4,
+                                  shadowColor: Colors.grey,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      hintText: '${loggedInUser.name}',
+                                      hintStyle: const TextStyle(
+                                        letterSpacing: 3,
+                                        color: Colors.black54,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      fillColor: Colors.white30,
+                                      filled: true,
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                          borderSide: BorderSide.none),
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  'Galeria',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.w500,
+                                const SizedBox(height: 20),
+                                Material(
+                                  elevation: 4,
+                                  shadowColor: Colors.grey,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      hintText: '${loggedInUser.email}',
+                                      hintStyle: const TextStyle(
+                                        letterSpacing: 3,
+                                        color: Colors.black54,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      fillColor: Colors.white30,
+                                      filled: true,
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                          borderSide: BorderSide.none),
+                                    ),
                                   ),
                                 ),
+                                const SizedBox(height: 20),
+                                Material(
+                                  elevation: 4,
+                                  shadowColor: Colors.grey,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      hintText: 'AMERICANA - SP',
+                                      hintStyle: const TextStyle(
+                                        letterSpacing: 3,
+                                        color: Colors.black54,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      fillColor: Colors.white30,
+                                      filled: true,
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                          borderSide: BorderSide.none),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 20),
+                                Material(
+                                  elevation: 4,
+                                  shadowColor: Colors.grey,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: TextFormField(
+                                    minLines: 1,
+                                    maxLines: 8,
+                                    decoration: InputDecoration(
+                                      hintText: 'Sobre mim...',
+                                      hintStyle: const TextStyle(
+                                        letterSpacing: 3,
+                                        color: Colors.black54,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      fillColor: Colors.white30,
+                                      filled: true,
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                          borderSide: BorderSide.none),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                )
                               ],
                             ),
                           )
                         ],
-                      )),
-                    );
-                  },
-                );
-              },
+                      ),
+                    ],
+                  ),
+                  painter: HeaderCurvedContainer(),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: const Color.fromARGB(255, 73, 93, 184),
+            minimumSize: const Size(0, 45),
+          ),
+          onPressed: () {},
+          child: const Text(
+            "Atualizar",
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.white,
             ),
           ),
         ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              height: 450,
-              width: double.infinity,
-              margin: const EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
-                children: [
-                  Material(
-                    elevation: 4,
-                    shadowColor: Colors.grey,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: TextField(
-                      enabled: false,
-                      decoration: InputDecoration(
-                        hintText: '${loggedInUser.name}',
-                        hintStyle: const TextStyle(
-                          letterSpacing: 3,
-                          color: Colors.black54,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        fillColor: Colors.white30,
-                        filled: true,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: BorderSide.none),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Material(
-                    elevation: 4,
-                    shadowColor: Colors.grey,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: TextField(
-                      enabled: false,
-                      decoration: InputDecoration(
-                          hintText: '${loggedInUser.email}',
-                          hintStyle: const TextStyle(
-                            letterSpacing: 3,
-                            color: Colors.black54,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          fillColor: Colors.white30,
-                          filled: true,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              borderSide: BorderSide.none)),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-
-                  Material(
-                    elevation: 4,
-                    shadowColor: Colors.grey,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: TextField(
-                      enabled: false,
-                      decoration: InputDecoration(
-                          hintText: 'AMERICANA - SP',
-                          hintStyle: const TextStyle(
-                            letterSpacing: 3,
-                            color: Colors.black54,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          fillColor: Colors.white30,
-                          filled: true,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              borderSide: BorderSide.none)),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-
-                  Material(
-                    elevation: 4,
-                    shadowColor: Colors.grey,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: TextFormField(
-                      enabled: false,
-                      minLines: 1,
-                      maxLines: 8,
-                      decoration: InputDecoration(
-                        hintText: 'Sobre mim...',
-                        hintStyle: const TextStyle(
-                          letterSpacing: 3,
-                          color: Colors.black54,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        fillColor: Colors.white30,
-                        filled: true,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: BorderSide.none),
-                      ),
-                    ),
-                  ),
-
-                  // SizedBox(
-                  //   height: 55,
-                  //   width: double.infinity,
-                  //   child: ElevatedButton(
-                  //     onPressed: () {},
-                  //     child: const Center(
-                  //       child: Text(
-                  //         "Atualizar",
-                  //         style: TextStyle(
-                  //           fontSize: 23,
-                  //           color: Colors.white,
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ),
-                  // )
-                ],
-              ),
-            )
-          ],
-        ),
-      ]),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const EditPage(),
-            ),
-          )
-        },
-        backgroundColor: const Color.fromARGB(255, 73, 93, 184),
-        child: const Icon(Icons.edit),
       ),
     );
   }
 }
+
+// floatingActionButton: FloatingActionButton(
+//   onPressed: () => {
+//     Navigator.of(context).push(
+//       MaterialPageRoute(
+//         builder: (context) => const EditPage(),
+//       ),
+//     )
+//   },
+//   backgroundColor: const Color.fromARGB(255, 73, 93, 184),
+//   child: const Icon(Icons.edit),
+// ),
 
 class HeaderCurvedContainer extends CustomPainter {
   @override
