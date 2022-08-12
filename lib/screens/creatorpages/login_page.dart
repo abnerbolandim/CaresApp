@@ -1,6 +1,7 @@
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:health_care/screens/creatorpages/reset_page.dart';
 import 'package:health_care/screens/homepagepaste/home_page.dart';
 import 'createaccount_page.dart';
 
@@ -163,23 +164,17 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: () {
                         signIn(_emailController.text, _passwordController.text);
                       },
-                      child: const Text('Login'),
-                    ),
-
-                    const SizedBox(
-                      height: 10,
+                      child: const Text('Entrar'),
                     ),
 
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text(
-                          'Forget Password?',
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: Color.fromARGB(255, 20, 98, 161),
-                            fontWeight: FontWeight.bold,
-                          ),
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          child: const Text('Esqueci minha senha'),
+                          onPressed: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => const ResetPage())),
                         )
                       ],
                     )
@@ -190,14 +185,11 @@ class _LoginPageState extends State<LoginPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            'You Have Don`t Account?',
+            'Ainda não tem um conta?',
             style: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.bold,
             ),
-          ),
-          const SizedBox(
-            width: 2,
           ),
           TextButton(
             onPressed: () {
@@ -208,7 +200,7 @@ class _LoginPageState extends State<LoginPage> {
               );
             },
             child: const Text(
-              'Create Account',
+              'Cadastre-se',
               style: TextStyle(
                 fontSize: 17,
                 fontWeight: FontWeight.bold,
@@ -254,7 +246,7 @@ class _LoginPageState extends State<LoginPage> {
             errorMessage = "Ocorreu um erro indefinido.";
         }
         Fluttertoast.showToast(msg: errorMessage!);
-        print(error.code);
+        debugPrint(error.code);
       }
     }
   }
