@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:health_care/model/user_model.dart';
-import 'package:health_care/screens/creatorpages/createaccount_page.dart';
+import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
 
 import 'screens/profile_page/profile_page.dart';
 
