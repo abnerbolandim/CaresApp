@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:health_care/screens/accountstypes/screens/cares_page/components/body.dart';
 
 import '../cares_page.dart';
 import 'post_details.dart';
@@ -9,7 +10,9 @@ void signUp(String email, String password, context) async {
   if (formKey.currentState!.validate()) {
     try {
       await auth
-          .createUserWithEmailAndPassword(email: email, password: password)
+          .createUserWithEmailAndPassword(
+              email: CaresInputs.caresEmailController.text.trim(),
+              password: CaresInputs.caresPasswordController.text.trim())
           .then((value) => {postDetailsToFirestore(context)})
           .catchError((e) {
         Fluttertoast.showToast(msg: e!.message);

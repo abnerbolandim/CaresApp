@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/screens/accountstypes/cares_page.dart';
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
+
+import '../accountstypes/screens/cares_page/cares_page.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../../../../model/user_model.dart';
-import '../../../../homepagepaste/home_page.dart';
+import '../../verify_pages/verify_pages.dart';
 import '../cares_page.dart';
 import 'body.dart';
 
@@ -24,7 +24,6 @@ postDetailsToFirestore(context) async {
       .set(userModel.toMap());
   Fluttertoast.showToast(msg: "Conta criada com sucesso!");
 
-  Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(builder: (context) => const HomePage()),
-      (route) => false);
+  Navigator.pushAndRemoveUntil((context),
+      MaterialPageRoute(builder: (context) => VerifyPage()), (route) => false);
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/screens/accountstypes/cares_page.dart';
-import 'package:health_care/screens/accountstypes/needcare_page.dart';
+
+import '../../accountstypes/screens/cares_page/cares_page.dart';
+import '../../accountstypes/screens/need_cares/needcare_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);

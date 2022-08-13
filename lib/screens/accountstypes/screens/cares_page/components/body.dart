@@ -115,7 +115,7 @@ Center buildBodyCaresPage(context) {
               obscureText: true,
               validator: (value) {
                 if (CaresInputs.caresConfirmPasswordController.text !=
-                    CaresInputs.caresConfirmPasswordController.text) {
+                    CaresInputs.caresPasswordController.text) {
                   return "Password don't match";
                 }
                 return null;
