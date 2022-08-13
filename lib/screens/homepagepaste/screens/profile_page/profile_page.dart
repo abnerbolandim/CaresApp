@@ -117,7 +117,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         : const CircleAvatar(
                                             radius: 80.0,
                                             backgroundImage: NetworkImage(
-                                              "https://picsum.photos/250?image=9",
+                                              "https://fopiess.org.br/wp-content/uploads/2018/01/default1.jpg",
                                             ),
                                             backgroundColor: Colors.transparent,
                                           ),
@@ -150,6 +150,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                   children: [
                                                     InkWell(
                                                       onTap: () {
+                                                        Navigator.pop(context);
                                                         getImage(
                                                           ImageSource.camera,
                                                         );
@@ -183,6 +184,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                     ),
                                                     InkWell(
                                                       onTap: () {
+                                                        Navigator.pop(context);
                                                         getImage(ImageSource
                                                             .gallery);
                                                       },
@@ -368,7 +370,13 @@ class _ProfilePageState extends State<ProfilePage> {
             primary: const Color.fromARGB(255, 73, 93, 184),
             minimumSize: const Size(0, 45),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const HomePage(),
+              ),
+            );
+          },
           child: const Text(
             "Atualizar",
             style: TextStyle(
