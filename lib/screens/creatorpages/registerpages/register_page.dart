@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
 
 import '../../accountstypes/screens/cares_page/cares_page.dart';
 import '../../accountstypes/screens/need_cares/needcare_page.dart';
@@ -22,7 +23,8 @@ class _RegisterPageState extends State<RegisterPage> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const CreateAccount()));
           },
           color: Colors.white,
         ),
