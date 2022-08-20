@@ -32,9 +32,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final globalKey = GlobalKey<ScaffoldState>();
+
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      key: globalKey,
       drawer: Drawer(
         backgroundColor: const Color.fromRGBO(24, 34, 71, 1),
         child: Column(
@@ -226,7 +229,7 @@ class _HomePageState extends State<HomePage> {
             color: Color.fromARGB(255, 73, 93, 184),
           ),
           onPressed: () {
-            Scaffold.of(context).openDrawer();
+            globalKey.currentState?.openDrawer();
           },
         ),
       ),
