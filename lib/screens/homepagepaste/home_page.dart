@@ -53,8 +53,8 @@ class _HomePageState extends State<HomePage> {
                         )
                       : const CircleAvatar(
                           radius: 80.0,
-                          backgroundImage:
-                              NetworkImage("https://picsum.photos/250?image=9"),
+                          backgroundImage: NetworkImage(
+                              "https://fopiess.org.br/wp-content/uploads/2018/01/default1.jpg"),
                           backgroundColor: Colors.transparent,
                         ),
                 ),
@@ -197,36 +197,37 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Color.fromARGB(255, 20, 97, 160)),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Container(
-                height: size.height / 20,
-                width: size.width / 10,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 78, 157, 232),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const ProfilePage(),
-                      ),
-                    );
-                  },
-                  icon: const Icon(Icons.person),
-                  color: Colors.white,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 12.0, top: 12.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(50.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const ProfilePage(),
+                    ),
+                  );
+                },
+                child: Image.network(
+                  'https://fopiess.org.br/wp-content/uploads/2018/01/default1.jpg',
                 ),
               ),
-            )
-          ],
+            ),
+          ),
+        ],
+        leading: IconButton(
+          icon: const Icon(
+            Icons.menu,
+            color: Color.fromARGB(255, 73, 93, 184),
+          ),
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          },
         ),
       ),
       body: SingleChildScrollView(
