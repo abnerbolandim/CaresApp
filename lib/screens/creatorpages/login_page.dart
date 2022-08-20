@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:health_care/screens/creatorpages/reset_page.dart';
 import 'package:health_care/screens/homepagepaste/home_page.dart';
-import 'registerpages/createaccount_page.dart';
+import 'chooseregistrationpages/createaccount_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
