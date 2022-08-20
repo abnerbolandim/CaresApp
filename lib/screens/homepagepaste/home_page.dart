@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:health_care/model/user_model.dart';
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
+import 'package:health_care/screens/homepagepaste/screens/settings/settings_page.dart';
 
 import 'screens/profile_page/profile_page.dart';
 
@@ -173,7 +174,7 @@ class _HomePageState extends State<HomePage> {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const HomePage(),
+                    builder: (context) => const SettingsPage(),
                   ),
                 );
               },
