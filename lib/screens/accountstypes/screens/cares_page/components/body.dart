@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/screens/accountstypes/screens/cares_page/components/sign_up.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
+import '../../verify_pages/verify_pages.dart';
 import '../cares_page.dart';
 
-Center buildBodyCaresPage(context) {
-  return Center(
-    child: SingleChildScrollView(
+class BuildBodyCaresPage extends StatefulWidget {
+  const BuildBodyCaresPage({Key? key}) : super(key: key);
+
+  @override
+  State<BuildBodyCaresPage> createState() => _BuildBodyCaresPageState();
+}
+
+String countryDial = "+55";
+
+class _BuildBodyCaresPageState extends State<BuildBodyCaresPage> {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: Form(
         key: formKey,
@@ -38,6 +49,37 @@ Center buildBodyCaresPage(context) {
                 prefixIcon: Icon(Icons.person),
                 hintText: "Ex: João da Silva",
                 labelText: 'Nome/sobrenome',
+                border: OutlineInputBorder(),
+              ),
+            ),
+
+            const SizedBox(
+              height: 20,
+            ),
+
+            //telefone
+            IntlPhoneField(
+              validator: (value) {
+                if (value.toString().isEmpty) {
+                  return ("Phone Number cannot be Empty");
+                }
+                return null;
+              },
+              controller: CaresInputs.caresTelefoneController,
+              showCountryFlag: false,
+              showDropdownIcon: false,
+              initialValue: countryDial,
+              keyboardType: TextInputType.phone,
+              onCountryChanged: (country) {
+                setState(() {
+                  countryDial = "+" + country.dialCode;
+                });
+              },
+              decoration: const InputDecoration(
+                counterText: "",
+                prefixIcon: Icon(Icons.person),
+                hintText: "(99) 99999-9999",
+                labelText: 'Telefone',
                 border: OutlineInputBorder(),
               ),
             ),
@@ -147,23 +189,20 @@ Center buildBodyCaresPage(context) {
                     const EdgeInsets.symmetric(horizontal: 120, vertical: 25),
               ),
               onPressed: () {
-                signUp(
-                  CaresInputs.caresEmailController.text,
-                  CaresInputs.caresPasswordController.text,
+                Navigator.push(
                   context,
+                  MaterialPageRoute(
+                    builder: (context) => VerifyPage(),
+                  ),
                 );
               },
               child: const Text('Criar Conta'),
             ),
-
-            const SizedBox(
-              height: 300,
-            )
           ],
         ),
       ),
-    ),
-  );
+    );
+  }
 }
 
 class CaresInputs {
@@ -173,5 +212,7 @@ class CaresInputs {
   static TextEditingController caresPasswordController =
       TextEditingController();
   static TextEditingController caresConfirmPasswordController =
+      TextEditingController();
+  static TextEditingController caresTelefoneController =
       TextEditingController();
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/screens/creatorpages/loginpages/login_page.dart';
 import 'package:health_care/screens/creatorpages/registerpages/register_page.dart';
 
 import '../../accountstypes/screens/cares_page/cares_page.dart';
+import '../loginpages/login_page.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({Key? key}) : super(key: key);

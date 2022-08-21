@@ -1,7 +1,6 @@
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:health_care/screens/homepagepaste/home_page.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:health_care/screens/creatorpages/loginpages/sign_in.dart';
 import '../chooseregistrationpages/createaccount_page.dart';
 import '../reset_page.dart';
 
@@ -14,11 +13,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-
-  final _auth = FirebaseAuth.instance;
 
   String? errorMessage;
 
@@ -105,14 +99,14 @@ class _LoginPageState extends State<LoginPage> {
                         prefixIcon: Icon(Icons.mail),
                         border: OutlineInputBorder(),
                       ),
-                      controller: _emailController,
+                      controller: LoginInputs.loginEmailController,
                       keyboardType: TextInputType.emailAddress,
                       validator: (email) {
                         if (email == null || email.isEmpty) {
                           return 'Por favor, digite seu e-mail';
                         } else if (!RegExp(
                                 r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                            .hasMatch(_emailController.text)) {
+                            .hasMatch(LoginInputs.loginEmailController.text)) {
                           return 'Por favor, digite um e-mail correto';
                         }
                         return null;
@@ -131,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                         prefixIcon: Icon(Icons.lock_rounded),
                         border: OutlineInputBorder(),
                       ),
-                      controller: _passwordController,
+                      controller: LoginInputs.loginPasswordController,
                       obscureText: true,
                       keyboardType: TextInputType.text,
                       validator: (senha) {
@@ -162,7 +156,17 @@ class _LoginPageState extends State<LoginPage> {
                             horizontal: 95, vertical: 20),
                       ),
                       onPressed: () {
-                        signIn(_emailController.text, _passwordController.text);
+                        if (LoginInputs.loginEmailController.text.isEmpty ||
+                            LoginInputs.loginPasswordController.text.isEmpty) {
+                          Fluttertoast.showToast(
+                              msg: "Preencha todos os campos");
+                        } else {
+                          signIn(
+                            LoginInputs.loginEmailController.text,
+                            LoginInputs.loginPasswordController.text,
+                            context,
+                          );
+                        }
                       },
                       child: const Text('Entrar'),
                     ),
@@ -211,43 +215,10 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+}
 
-  void signIn(String email, String password) async {
-    if (_formKey.currentState!.validate()) {
-      try {
-        await _auth
-            .signInWithEmailAndPassword(email: email, password: password)
-            .then((uid) => {
-                  Fluttertoast.showToast(msg: "Login Efetuado com Sucesso"),
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const HomePage())),
-                });
-      } on FirebaseAuthException catch (error) {
-        switch (error.code) {
-          case "invalid-email":
-            errorMessage = "Seu endereço de e-mail parece estar incorreto.";
-            break;
-          case "wrong-password":
-            errorMessage = "Sua senha está errada.";
-            break;
-          case "user-not-found":
-            errorMessage = "O usuário com este e-mail não existe.";
-            break;
-          case "user-disabled":
-            errorMessage = "O usuário com este e-mail foi desativado.";
-            break;
-          case "too-many-requests":
-            errorMessage = "Muitos pedidos.";
-            break;
-          case "operation-not-allowed":
-            errorMessage = "Entrar com e-mail e senha não está ativado.";
-            break;
-          default:
-            errorMessage = "Ocorreu um erro indefinido.";
-        }
-        Fluttertoast.showToast(msg: errorMessage!);
-        debugPrint(error.code);
-      }
-    }
-  }
+class LoginInputs {
+  static TextEditingController loginEmailController = TextEditingController();
+  static TextEditingController loginPasswordController =
+      TextEditingController();
 }

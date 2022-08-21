@@ -19,7 +19,7 @@ class _CaresPage extends State<CaresPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBarCaresPage(context),
-      body: buildBodyCaresPage(context),
+      body: const BuildBodyCaresPage(),
       bottomNavigationBar: const BuildBottomCaresPage(),
     );
   }

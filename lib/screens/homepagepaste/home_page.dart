@@ -18,6 +18,8 @@ User? user = FirebaseAuth.instance.currentUser;
 UserModel loggedInUser = UserModel();
 
 class _HomePageState extends State<HomePage> {
+  User? user = FirebaseAuth.instance.currentUser;
+
   @override
   void initState() {
     super.initState();
