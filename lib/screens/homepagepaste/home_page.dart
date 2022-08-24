@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:health_care/model/user_model.dart';
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
 import 'package:health_care/screens/homepagepaste/screens/settings/settings_page.dart';
@@ -130,11 +131,13 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ),
-                );
+                Fluttertoast.showToast(msg: 'Não feito');
+
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(
+                //     builder: (context) => const HomePage(),
+                //   ),
+                // );
               },
             ),
             ListTile(
@@ -152,11 +155,13 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ),
-                );
+                Fluttertoast.showToast(msg: 'Não feito');
+
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(
+                //     builder: (context) => const HomePage(),
+                //   ),
+                // );
               },
             ),
             ListTile(
@@ -212,15 +217,26 @@ class _HomePageState extends State<HomePage> {
               borderRadius: BorderRadius.circular(50.0),
               child: InkWell(
                 onTap: () {
-                  Navigator.pop(context);
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const ProfilePage(),
                     ),
                   );
                 },
-                child: Image.network(
-                  'https://fopiess.org.br/wp-content/uploads/2018/01/default1.jpg',
+                child: CircleAvatar(
+                  backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                  radius: 20.0,
+                  child: uImage != null
+                      ? CircleAvatar(
+                          radius: 80.0,
+                          backgroundImage: FileImage(uImage!),
+                        )
+                      : const CircleAvatar(
+                          radius: 80.0,
+                          backgroundImage: NetworkImage(
+                              "https://fopiess.org.br/wp-content/uploads/2018/01/default1.jpg"),
+                          backgroundColor: Colors.transparent,
+                        ),
                 ),
               ),
             ),

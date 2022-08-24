@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:health_care/screens/homepagepaste/home_page.dart'; // ignore: unused_import
 import '../../../../model/user_model.dart';
 import '../../../accountstypes/screens/verify_pages/utils.dart';
@@ -53,11 +54,6 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             onPressed: () {
               Navigator.pop(context);
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const HomePage(),
-                ),
-              );
             },
           ),
         ),
@@ -86,7 +82,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       }),
                       title: Text(
                         '${loggedInUser.name}',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white, fontWeight: FontWeight.w500),
                       ),
                       leading: CircleAvatar(
@@ -148,7 +144,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => const HomePage(),
+                                builder: (context) => const ProfilePage(),
                               ),
                             );
                           },
@@ -175,11 +171,13 @@ class _SettingsPageState extends State<SettingsPage> {
                           trailing:
                               const Icon(Icons.keyboard_arrow_right_outlined),
                           onTap: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => const HomePage(),
-                              ),
-                            );
+                            Fluttertoast.showToast(msg: 'Não feito');
+
+                            // Navigator.of(context).push(
+                            //   MaterialPageRoute(
+                            //     builder: (context) => const HomePage(),
+                            //   ),
+                            // );
                           },
                         ),
                         Container(
@@ -204,11 +202,13 @@ class _SettingsPageState extends State<SettingsPage> {
                           trailing:
                               const Icon(Icons.keyboard_arrow_right_outlined),
                           onTap: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => const HomePage(),
-                              ),
-                            );
+                            Fluttertoast.showToast(msg: 'Não feito');
+
+                            // Navigator.of(context).push(
+                            //   MaterialPageRoute(
+                            //     builder: (context) => const HomePage(),
+                            //   ),
+                            // );
                           },
                         ),
                       ],

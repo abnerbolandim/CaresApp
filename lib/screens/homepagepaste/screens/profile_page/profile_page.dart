@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:health_care/model/user_model.dart';
 import 'package:health_care/screens/homepagepaste/home_page.dart';
 import 'package:path/path.dart';
@@ -71,8 +72,8 @@ class _ProfilePageState extends State<ProfilePage> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {
-            Navigator.pop(context);
-            Navigator.of(context).push(
+            Navigator.pushReplacement(
+              context,
               MaterialPageRoute(
                 builder: (context) => const HomePage(),
               ),
@@ -375,11 +376,7 @@ class _ProfilePageState extends State<ProfilePage> {
             minimumSize: const Size(0, 45),
           ),
           onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ),
-            );
+            Fluttertoast.showToast(msg: 'Perfil atualizado!');
           },
           child: const Text(
             "Atualizar",
