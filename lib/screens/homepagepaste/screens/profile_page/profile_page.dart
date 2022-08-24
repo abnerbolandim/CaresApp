@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:health_care/model/user_model.dart';
 import 'package:health_care/screens/homepagepaste/home_page.dart';
 import 'package:path/path.dart';
@@ -57,6 +58,9 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return File(imagePath).copy(image.path);
   }
+
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
 
   @override
   Widget build(BuildContext context) {
