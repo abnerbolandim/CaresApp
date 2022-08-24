@@ -1,14 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:health_care/screens/homepagepaste/home_page.dart'; // ignore: unused_import
 import '../../../../model/user_model.dart';
 import '../../../accountstypes/screens/verify_pages/utils.dart';
 
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
-
+import '../../home_page.dart';
 import '../profile_page/profile_page.dart';
+import '../changepassword_page.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -54,6 +53,11 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             onPressed: () {
               Navigator.pop(context);
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const HomePage(),
+                ),
+              );
             },
           ),
         ),
@@ -82,7 +86,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       }),
                       title: Text(
                         '${loggedInUser.name}',
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.w500),
                       ),
                       leading: CircleAvatar(
@@ -134,17 +138,17 @@ class _SettingsPageState extends State<SettingsPage> {
                             color: Color.fromARGB(255, 73, 93, 184),
                           ),
                           title: const Text(
-                            "Sua Conta",
+                            "Altere a Senha",
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.w600),
                           ),
-                          subtitle: const Text('Informações da conta'),
+                          subtitle: const Text('Atuallize sua senha'),
                           trailing:
                               const Icon(Icons.keyboard_arrow_right_outlined),
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => const ProfilePage(),
+                                builder: (context) => const PasswordPage(),
                               ),
                             );
                           },
@@ -171,13 +175,11 @@ class _SettingsPageState extends State<SettingsPage> {
                           trailing:
                               const Icon(Icons.keyboard_arrow_right_outlined),
                           onTap: () {
-                            Fluttertoast.showToast(msg: 'Não feito');
-
-                            // Navigator.of(context).push(
-                            //   MaterialPageRoute(
-                            //     builder: (context) => const HomePage(),
-                            //   ),
-                            // );
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const HomePage(),
+                              ),
+                            );
                           },
                         ),
                         Container(
@@ -202,13 +204,11 @@ class _SettingsPageState extends State<SettingsPage> {
                           trailing:
                               const Icon(Icons.keyboard_arrow_right_outlined),
                           onTap: () {
-                            Fluttertoast.showToast(msg: 'Não feito');
-
-                            // Navigator.of(context).push(
-                            //   MaterialPageRoute(
-                            //     builder: (context) => const HomePage(),
-                            //   ),
-                            // );
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const HomePage(),
+                              ),
+                            );
                           },
                         ),
                       ],
