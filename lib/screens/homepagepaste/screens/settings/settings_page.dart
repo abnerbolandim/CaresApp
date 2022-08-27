@@ -2,12 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../../../model/user_model.dart';
-import '../../../accountstypes/screens/verify_pages/utils.dart';
 
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
 import '../../home_page.dart';
 import '../profile_page/profile_page.dart';
-import '../changepassword_page.dart';
+import 'changepassword_page.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -86,7 +85,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       }),
                       title: Text(
                         '${loggedInUser.name}',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white, fontWeight: FontWeight.w500),
                       ),
                       leading: CircleAvatar(
@@ -148,7 +147,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => const PasswordPage(),
+                                builder: (context) => const ChangePassword(),
                               ),
                             );
                           },
