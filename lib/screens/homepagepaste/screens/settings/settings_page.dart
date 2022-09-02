@@ -1,12 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:health_care/screens/homepagepaste/screens/settings/screens/privacy_page.dart';
 import '../../../../model/user_model.dart';
 
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
 import '../../home_page.dart';
 import '../profile_page/profile_page.dart';
-import 'changepassword_page.dart';
+import 'screens/changepassword_page.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -205,7 +206,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => const HomePage(),
+                                builder: (context) => const PrivacyPage(),
                               ),
                             );
                           },
