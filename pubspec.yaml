@@ -30,18 +30,39 @@ dependencies:
   flutter:
     sdk: flutter
 
+
+  #icon
   cupertino_icons: ^1.0.2
+
+
+  #photos in svg
   flutter_svg: ^1.0.3
+
+
+  #firebase packages
   firebase_core: ^1.19.1
   firebase_auth: ^3.3.14
   cloud_firestore: ^3.2.1
+  firebase_storage: ^10.3.3
+  firebase_messaging: ^13.0.0
+  overlay_support: ^2.0.1
+
+
+  #For show.home
   shared_preferences: ^2.0.15
   fluttertoast: ^8.0.9
-  firebase_storage: ^10.3.3
+
+
+  #pick photos in the gallery
   image_picker: ^0.8.5+3
   path_provider: ^2.0.11
+
+
+  #For the OTP Verification
   intl_phone_field: ^3.1.0
   pin_code_fields: ^7.4.0
+
+
 
 dev_dependencies:
   flutter_test:
