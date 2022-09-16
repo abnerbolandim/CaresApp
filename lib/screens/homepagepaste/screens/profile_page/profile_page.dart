@@ -72,12 +72,7 @@ class _ProfilePageState extends State<ProfilePage> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ),
-            );
+            Navigator.of(context).pop();
           },
         ),
       ),
