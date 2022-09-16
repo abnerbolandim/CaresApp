@@ -37,11 +37,6 @@ class _SwitchNotificationPageState extends State<SwitchNotificationPage> {
           ),
           onPressed: () {
             Navigator.pop(context);
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const SettingsPage(),
-              ),
-            );
           },
         ),
       ),

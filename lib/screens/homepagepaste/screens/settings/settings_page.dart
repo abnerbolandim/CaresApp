@@ -54,11 +54,6 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             onPressed: () {
               Navigator.pop(context);
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const HomePage(),
-                ),
-              );
             },
           ),
         ),
