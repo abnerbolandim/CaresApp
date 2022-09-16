@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:health_care/model/user_model.dart';
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
+import 'package:health_care/screens/homepagepaste/screens/settings/screens/switchnotification_page.dart';
 import 'package:health_care/screens/homepagepaste/screens/settings/settings_page.dart';
 
 import 'screens/profile_page/profile_page.dart';
@@ -46,163 +47,21 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: const Color.fromRGBO(24, 34, 71, 1),
         child: Column(
           children: [
-            UserAccountsDrawerHeader(
-                decoration: const BoxDecoration(
-                  color: Color.fromRGBO(0, 185, 228, 1),
-                ),
-                currentAccountPicture: CircleAvatar(
-                  backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-                  radius: 85.0,
-                  child: uImage != null
-                      ? CircleAvatar(
-                          radius: 80.0,
-                          backgroundImage: FileImage(uImage!),
-                        )
-                      : const CircleAvatar(
-                          radius: 80.0,
-                          backgroundImage: NetworkImage(
-                              "https://fopiess.org.br/wp-content/uploads/2018/01/default1.jpg"),
-                          backgroundColor: Colors.transparent,
-                        ),
-                ),
-                accountName: Text(
-                  '${loggedInUser.name}',
-                  style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                accountEmail: Text(
-                  '${loggedInUser.email}',
-                  style: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.w500),
-                )),
-            ListTile(
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-              leading: const Icon(
-                Icons.person_outline_sharp,
-                color: Colors.white,
-              ),
-              title: const Text(
-                'Perfil',
-                style: TextStyle(fontSize: 18, color: Colors.white),
-              ),
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const ProfilePage(),
+            SizedBox(
+              height: size.height,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: const [
+                      informacoesConta(),
+                      ConteudoMeio(),
+                    ],
                   ),
-                );
-              },
-            ),
-            ListTile(
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-              leading: const Icon(
-                Icons.home_outlined,
-                color: Colors.white,
+                  logoutBtn(context),
+                ],
               ),
-              title: const Text(
-                'Inicio',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
-              ),
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-              leading: const Icon(
-                Icons.notifications_none,
-                color: Colors.white,
-              ),
-              title: const Text(
-                'Notificação',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
-              ),
-              onTap: () {
-                Fluttertoast.showToast(msg: 'Não feito');
-
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (context) => const HomePage(),
-                //   ),
-                // );
-              },
-            ),
-            ListTile(
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-              leading: const Icon(
-                Icons.message_outlined,
-                color: Colors.white,
-              ),
-              title: const Text(
-                'Mensagem',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
-              ),
-              onTap: () {
-                Fluttertoast.showToast(msg: 'Não feito');
-
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (context) => const HomePage(),
-                //   ),
-                // );
-              },
-            ),
-            ListTile(
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-              leading: const Icon(
-                Icons.miscellaneous_services_outlined,
-                color: Colors.white,
-              ),
-              title: const Text(
-                'Configuração',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
-              ),
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const SettingsPage(),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-              leading: const Icon(
-                Icons.logout_outlined,
-                color: Colors.white,
-              ),
-              title: const Text(
-                'Finalizar sessão',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
-              ),
-              onTap: () {
-                logout(context);
-              },
             )
           ],
         ),
@@ -476,6 +335,26 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  ListTile logoutBtn(BuildContext context) {
+    return ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+      leading: const Icon(
+        Icons.logout_outlined,
+        color: Colors.white,
+      ),
+      title: const Text(
+        'Finalizar sessão',
+        style: TextStyle(
+          fontSize: 18,
+          color: Colors.white,
+        ),
+      ),
+      onTap: () {
+        logout(context);
+      },
+    );
+  }
+
   Widget searchField(Size size) {
     return Container(
       height: size.height / 14,
@@ -518,5 +397,116 @@ class _HomePageState extends State<HomePage> {
     await FirebaseAuth.instance.signOut();
     Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const CreateAccount()));
+  }
+}
+
+class ConteudoMeio extends StatelessWidget {
+  const ConteudoMeio({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ListTile(
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+          leading: const Icon(
+            Icons.person_outline_sharp,
+            color: Colors.white,
+          ),
+          title: const Text(
+            'Perfil',
+            style: TextStyle(fontSize: 18, color: Colors.white),
+          ),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const ProfilePage(),
+              ),
+            );
+          },
+        ),
+        ListTile(
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+          leading: const Icon(
+            Icons.notifications_none,
+            color: Colors.white,
+          ),
+          title: const Text(
+            'Notificação',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.white,
+            ),
+          ),
+          onTap: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => SwitchNotificationPage()));
+          },
+        ),
+        ListTile(
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+          leading: const Icon(
+            Icons.miscellaneous_services_outlined,
+            color: Colors.white,
+          ),
+          title: const Text(
+            'Configuração',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.white,
+            ),
+          ),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const SettingsPage(),
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class informacoesConta extends StatelessWidget {
+  const informacoesConta({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return UserAccountsDrawerHeader(
+        decoration: const BoxDecoration(
+          color: Color.fromRGBO(0, 185, 228, 1),
+        ),
+        currentAccountPicture: CircleAvatar(
+          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+          radius: 85.0,
+          child: uImage != null
+              ? CircleAvatar(
+                  radius: 80.0,
+                  backgroundImage: FileImage(uImage!),
+                )
+              : const CircleAvatar(
+                  radius: 80.0,
+                  backgroundImage: NetworkImage(
+                      "https://fopiess.org.br/wp-content/uploads/2018/01/default1.jpg"),
+                  backgroundColor: Colors.transparent,
+                ),
+        ),
+        accountName: Text(
+          '${loggedInUser.name}',
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        accountEmail: Text(
+          '${loggedInUser.email}',
+          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+        ));
   }
 }
