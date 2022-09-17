@@ -62,6 +62,9 @@ dependencies:
   intl_phone_field: ^3.1.0
   pin_code_fields: ^7.4.0
 
+  #URL
+  url_launcher: ^6.1.5 
+
 
 
 dev_dependencies:
