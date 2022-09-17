@@ -256,12 +256,10 @@ class _SettingsPageState extends State<SettingsPage> {
                                 onTap: () {
                                   final snackBar = SnackBar(
                                     content: const Text(
-                                        'A função será disponibilizado ainda.'),
+                                        'Acesse o site https://zearck.github.io/Cares_html/#contato por favor!'),
                                     action: SnackBarAction(
                                       label: 'Desfazer',
-                                      onPressed: () {
-                                        // Some code to undo the change.
-                                      },
+                                      onPressed: () {},
                                     ),
                                   );
                                   ScaffoldMessenger.of(context)
