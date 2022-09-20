@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:health_care/screens/accountstypes/screens/cares_page/components/body.dart';
+import 'package:health_care/screens/homepagepaste/home_page.dart';
 
+import '../../../../creatorpages/registerpages/register_page.dart';
 import '../cares_page.dart';
 import 'post_details.dart';
 
@@ -17,6 +19,33 @@ void signUp(String email, String password, context) async {
             postDetailsToFirestore(context),
           },
         );
+
+    /*
+      quando selecionar cuidador, dar setState na variavel cuidador como true
+
+      quando selecionar paciente, dar setState na variavel cuidador como false
+    */
+
+    Cuidador == true
+        ? Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const teste(),
+            ),
+          )
+        : Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            ),
+          );
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const HomePage(),
+      ),
+    );
   } on FirebaseAuthException catch (error) {
     String? errorMessage;
 
@@ -44,5 +73,21 @@ void signUp(String email, String password, context) async {
     }
     Fluttertoast.showToast(msg: errorMessage);
     debugPrint(error.code);
+  }
+}
+
+class teste extends StatefulWidget {
+  const teste({Key? key}) : super(key: key);
+
+  @override
+  State<teste> createState() => _testeState();
+}
+
+class _testeState extends State<teste> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(child: Text('teste')),
+    );
   }
 }
