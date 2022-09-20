@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
 
 import '../../accountstypes/screens/cares_page/cares_page.dart';
-import '../../accountstypes/screens/need_cares/needcare_page.dart';
+import '../../accountstypes/screens/need_cares/need_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -10,6 +10,8 @@ class RegisterPage extends StatefulWidget {
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
+
+bool Cuidador = false;
 
 class _RegisterPageState extends State<RegisterPage> {
   @override
@@ -72,6 +74,10 @@ class _RegisterPageState extends State<RegisterPage> {
                           builder: (context) => const NeedCarePage(),
                         ),
                       );
+
+                      setState(() {
+                        Cuidador = false;
+                      });
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -113,6 +119,10 @@ class _RegisterPageState extends State<RegisterPage> {
                           builder: (context) => const CaresPage(),
                         ),
                       );
+
+                      setState(() {
+                        Cuidador = true;
+                      });
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
