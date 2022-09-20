@@ -123,9 +123,6 @@ class _VerifyOTPState extends State<VerifyOTP> {
                     otpPin = value;
                   });
 
-                  // ignore: todo
-                  //TODO: sms ? smsOTP() : emailOTP();
-
                   smsOTP();
                 }
               },

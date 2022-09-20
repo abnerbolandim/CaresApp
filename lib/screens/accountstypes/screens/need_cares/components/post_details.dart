@@ -5,7 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:health_care/screens/homepagepaste/home_page.dart';
 
 import '../../../../../model/user_model.dart';
-import '../cares_page.dart';
+import '../need_page.dart';
 import 'body.dart';
 
 postDetailsToFirestore(context) async {
@@ -23,4 +23,11 @@ postDetailsToFirestore(context) async {
       .doc(user.uid)
       .set(userModel.toMap());
   Fluttertoast.showToast(msg: "Conta criada com sucesso!");
+
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const HomePage(),
+    ),
+  );
 }

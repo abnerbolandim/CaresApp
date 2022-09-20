@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../creatorpages/chooseregistrationpages/createaccount_page.dart';
 
-class BuildBottomNeedCares extends StatelessWidget {
-  const BuildBottomNeedCares({
+class BuildBottomNeedCarePage extends StatelessWidget {
+  const BuildBottomNeedCarePage({
     Key? key,
   }) : super(key: key);
 
