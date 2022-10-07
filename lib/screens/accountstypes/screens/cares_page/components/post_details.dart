@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+// ignore: unused_import
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+// ignore: unused_import
 import 'package:health_care/screens/homepagepaste/home_page.dart';
 
 import '../../../../../model/user_model.dart';
@@ -17,6 +19,8 @@ postDetailsToFirestore(context) async {
   userModel.email = user!.email;
   userModel.uid = user.uid;
   userModel.name = CaresInputs.caresNameEditingController.text;
+  userModel.location = CaresInputs.caresLocationEditingController.text;
+  userModel.telefone = CaresInputs.caresTelefoneEditingController.text;
 
   await firebaseFirestore
       .collection("users")
