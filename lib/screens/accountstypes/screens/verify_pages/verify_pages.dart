@@ -6,6 +6,8 @@ import 'package:health_care/screens/accountstypes/screens/verify_pages/verify_ot
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
 import 'package:health_care/screens/creatorpages/registerpages/register_page.dart';
 import '../../../../model/user_model.dart';
+import '../cares_page/components/body.dart';
+import '../cares_page/components/sign_up.dart';
 
 // ignore: use_key_in_widget_constructors
 bool sms = false;
@@ -75,6 +77,7 @@ class _VerifyPageState extends State<VerifyPage> {
               const SizedBox(height: 20),
               ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
+                  // ignore: deprecated_member_use
                   primary: const Color.fromARGB(255, 73, 93, 184),
                   minimumSize: const Size.fromHeight(50),
                 ),
@@ -100,6 +103,7 @@ class _VerifyPageState extends State<VerifyPage> {
               ),
               ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
+                  // ignore: deprecated_member_use
                   primary: const Color.fromARGB(255, 73, 93, 184),
                   minimumSize: const Size.fromHeight(50),
                 ),
@@ -112,12 +116,19 @@ class _VerifyPageState extends State<VerifyPage> {
                   setState(() {
                     sms = true;
                   }),
-                  Navigator.push(
+
+                  signUp(
+                    CaresInputs.caresEmailController.text,
+                    CaresInputs.caresPasswordController.text,
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const VerifyOTP(),
-                    ),
-                  ),
+                  )
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     // builder: (context) => const VerifyOTP(),
+                  //     builder: (context) => const (),
+                  //   ),
+                  // ),
                 },
               ),
               const SizedBox(
@@ -131,6 +142,7 @@ class _VerifyPageState extends State<VerifyPage> {
         padding: const EdgeInsets.all(16.0),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
+            // ignore: deprecated_member_use
             primary: Colors.white,
             minimumSize: const Size.fromHeight(50),
             side: const BorderSide(

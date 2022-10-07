@@ -123,7 +123,13 @@ class _VerifyOTPState extends State<VerifyOTP> {
                     otpPin = value;
                   });
 
-                  smsOTP();
+                  // smsOTP();
+
+                  signUp(
+                    CaresInputs.caresEmailController.text,
+                    CaresInputs.caresPasswordController.text,
+                    context,
+                  );
                 }
               },
               pinTheme: PinTheme(

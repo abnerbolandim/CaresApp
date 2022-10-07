@@ -184,6 +184,7 @@ class _BuildBodyNeedCarePageState extends State<BuildBodyNeedCarePage> {
                   fontWeight: FontWeight.bold,
                 ),
                 backgroundColor: const Color.fromRGBO(0, 101, 156, 1),
+                // ignore: deprecated_member_use
                 primary: Colors.white,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 120, vertical: 25),
