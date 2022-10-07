@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:health_care/model/user_model.dart';
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
+import 'package:health_care/screens/homepagepaste/screens/search_page/search_page.dart';
 import 'package:health_care/screens/homepagepaste/screens/settings/screens/switchnotification_page.dart';
 import 'package:health_care/screens/homepagepaste/screens/settings/settings_page.dart';
 
@@ -169,17 +170,27 @@ class _HomePageState extends State<HomePage> {
                       ]),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(
-                        Icons.free_breakfast_outlined,
-                        color: Colors.white,
-                        size: 50,
+                    children: [
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        icon: const Icon(
+                          Icons.free_breakfast_outlined,
+                          size: 50,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const SearchPage(),
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(
                         height: 5,
                       ),
                       Text(
-                        'Psicólogo',
+                        'Ajudante',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -203,16 +214,26 @@ class _HomePageState extends State<HomePage> {
                       ]),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(
-                        Icons.medical_services_outlined,
-                        color: Colors.white,
-                        size: 50,
+                    children: [
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        icon: const Icon(
+                          Icons.medical_services_outlined,
+                          size: 50,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const SearchPage(),
+                            ),
+                          );
+                        },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
-                      Text(
+                      const Text(
                         'Médico',
                         style: TextStyle(
                           color: Colors.white,
@@ -237,16 +258,26 @@ class _HomePageState extends State<HomePage> {
                       ]),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(
-                        Icons.medication_liquid_sharp,
-                        color: Colors.white,
-                        size: 50,
+                    children: [
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        icon: const Icon(
+                          Icons.medication_liquid_sharp,
+                          size: 50,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const SearchPage(),
+                            ),
+                          );
+                        },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
-                      Text(
+                      const Text(
                         'Cuidador',
                         style: TextStyle(
                           color: Colors.white,
@@ -377,14 +408,25 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Container(
-              height: size.height / 12,
+              height: size.height / 10,
               width: size.height / 20,
               decoration: BoxDecoration(
                   color: const Color.fromRGBO(55, 82, 178, 1),
-                  borderRadius: BorderRadius.circular(15)),
-              child: const Icon(
-                Icons.search,
-                color: Colors.white,
+                  borderRadius: BorderRadius.circular(50)),
+              child: IconButton(
+                padding: EdgeInsets.zero,
+                icon: const Icon(
+                  Icons.search,
+                  size: 25,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const SearchPage(),
+                    ),
+                  );
+                },
               ),
             ),
           ),
