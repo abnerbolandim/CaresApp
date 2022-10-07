@@ -27,4 +27,11 @@ postDetailsToFirestore(context) async {
       .doc(user.uid)
       .set(userModel.toMap());
   Fluttertoast.showToast(msg: "Conta criada com sucesso!");
+
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const HomePage(),
+    ),
+  );
 }

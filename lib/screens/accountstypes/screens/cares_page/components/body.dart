@@ -34,10 +34,10 @@ class _BuildBodyCaresPageState extends State<BuildBodyCaresPage> {
               validator: (value) {
                 RegExp regex = RegExp(r'^.{3,}$');
                 if (value!.isEmpty) {
-                  return ("First Name cannot be Empty");
+                  return ("O campo nome completo não pode estar vazio");
                 }
                 if (!regex.hasMatch(value)) {
-                  return ("Enter Valid name(Min. 3 Character)");
+                  return ("Insira nome completo válido(Min. 3 Caracteres)");
                 }
                 return null;
               },
@@ -64,10 +64,10 @@ class _BuildBodyCaresPageState extends State<BuildBodyCaresPage> {
               validator: (value) {
                 RegExp regex = RegExp(r'^.{3,}$');
                 if (value!.isEmpty) {
-                  return ("First Name cannot be Empty");
+                  return ("O campo endereço não pode estar vazio");
                 }
                 if (!regex.hasMatch(value)) {
-                  return ("Enter Valid name(Min. 3 Character)");
+                  return ("Insire um endereço válido(Min. 3 Caracteres)");
                 }
                 return null;
               },
@@ -91,7 +91,7 @@ class _BuildBodyCaresPageState extends State<BuildBodyCaresPage> {
             IntlPhoneField(
               validator: (value) {
                 if (value.toString().isEmpty) {
-                  return ("Phone Number cannot be Empty");
+                  return ("O número de telefone não pode estar vazio");
                 }
                 return null;
               },
@@ -125,12 +125,12 @@ class _BuildBodyCaresPageState extends State<BuildBodyCaresPage> {
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
                 if (value!.isEmpty) {
-                  return ("Please Enter Your Email");
+                  return ("Por favor, insire seu email");
                 }
                 // reg expression for email validation
                 if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
                     .hasMatch(value)) {
-                  return ("Please Enter a valid email");
+                  return ("Por favor, insira um email válido");
                 }
                 return null;
               },
@@ -141,7 +141,7 @@ class _BuildBodyCaresPageState extends State<BuildBodyCaresPage> {
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.mail),
                 labelText: 'E-mail',
-                hintText: "name@example.com",
+                hintText: "nome@email.com",
                 border: OutlineInputBorder(),
               ),
             ),
@@ -158,10 +158,10 @@ class _BuildBodyCaresPageState extends State<BuildBodyCaresPage> {
               validator: (value) {
                 RegExp regex = RegExp(r'^.{6,}$');
                 if (value!.isEmpty) {
-                  return ("Password is required for login");
+                  return ("Senha é necessária para o Registro");
                 }
                 if (!regex.hasMatch(value)) {
-                  return ("Enter Valid Password(Min. 6 Character)");
+                  return ("Insira uma senha válida(Min. 6 Caracteres)");
                 }
                 return null;
               },
@@ -188,7 +188,7 @@ class _BuildBodyCaresPageState extends State<BuildBodyCaresPage> {
               validator: (value) {
                 if (CaresInputs.caresConfirmPasswordController.text !=
                     CaresInputs.caresPasswordController.text) {
-                  return "Password don't match";
+                  return "A senha não corresponde";
                 }
                 return null;
               },

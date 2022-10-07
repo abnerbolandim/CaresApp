@@ -4,7 +4,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:health_care/screens/accountstypes/screens/cares_page/components/body.dart';
 import 'package:health_care/screens/homepagepaste/home_page.dart';
 
-import '../../../../creatorpages/registerpages/register_page.dart';
 import '../cares_page.dart';
 import 'post_details.dart';
 
@@ -20,26 +19,6 @@ void signUp(String email, String password, context) async {
           },
         );
 
-    /*
-      quando selecionar cuidador, dar setState na variavel cuidador como true
-
-      quando selecionar paciente, dar setState na variavel cuidador como false
-    */
-
-    Cuidador == true
-        ? Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const teste(),
-            ),
-          )
-        : Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const HomePage(),
-            ),
-          );
-
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -51,43 +30,27 @@ void signUp(String email, String password, context) async {
 
     switch (error.code) {
       case "invalid-email":
-        errorMessage = "Your email address appears to be malformed.";
+        errorMessage = "Seu endereço de e-mail parece estar incorreto.";
         break;
       case "wrong-password":
-        errorMessage = "Your password is wrong.";
+        errorMessage = "Sua senha está errada.";
         break;
       case "user-not-found":
-        errorMessage = "User with this email doesn't exist.";
+        errorMessage = "O usuário com este e-mail não existe.";
         break;
       case "user-disabled":
-        errorMessage = "User with this email has been disabled.";
+        errorMessage = "O usuário com este e-mail foi desativado.";
         break;
       case "too-many-requests":
-        errorMessage = "Too many requests";
+        errorMessage = "Muitos pedidos.";
         break;
       case "operation-not-allowed":
-        errorMessage = "Signing in with Email and Password is not enabled.";
+        errorMessage = "Entrar com e-mail e senha não está ativado.";
         break;
       default:
-        errorMessage = "An undefined Error happened.";
+        errorMessage = "Ocorreu um erro indefinido.";
     }
     Fluttertoast.showToast(msg: errorMessage);
     debugPrint(error.code);
-  }
-}
-
-class teste extends StatefulWidget {
-  const teste({Key? key}) : super(key: key);
-
-  @override
-  State<teste> createState() => _testeState();
-}
-
-class _testeState extends State<teste> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text('teste')),
-    );
   }
 }

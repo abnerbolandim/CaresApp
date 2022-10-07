@@ -94,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
 
                     TextFormField(
                       decoration: const InputDecoration(
-                        hintText: 'name@example.com',
+                        hintText: 'nome@email.com',
                         labelText: 'E-mail',
                         prefixIcon: Icon(Icons.mail),
                         border: OutlineInputBorder(),

@@ -149,7 +149,7 @@ class _ResetPageState extends State<ResetPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            'You Have Don`t Account?',
+            'Você não tem conta?',
             style: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.bold,
@@ -167,7 +167,7 @@ class _ResetPageState extends State<ResetPage> {
               );
             },
             child: const Text(
-              'Create Account',
+              'Crie uma Conta',
               style: TextStyle(
                 fontSize: 17,
                 fontWeight: FontWeight.bold,

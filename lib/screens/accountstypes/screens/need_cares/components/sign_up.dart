@@ -22,25 +22,25 @@ void signUp(String email, String password, context) async {
 
     switch (error.code) {
       case "invalid-email":
-        errorMessage = "Your email address appears to be malformed.";
+        errorMessage = "Seu endereço de e-mail parece estar incorreto.";
         break;
       case "wrong-password":
-        errorMessage = "Your password is wrong.";
+        errorMessage = "Sua senha está errada.";
         break;
       case "user-not-found":
-        errorMessage = "User with this email doesn't exist.";
+        errorMessage = "O usuário com este e-mail não existe.";
         break;
       case "user-disabled":
-        errorMessage = "User with this email has been disabled.";
+        errorMessage = "O usuário com este e-mail foi desativado.";
         break;
       case "too-many-requests":
-        errorMessage = "Too many requests";
+        errorMessage = "Muitos pedidos.";
         break;
       case "operation-not-allowed":
-        errorMessage = "Signing in with Email and Password is not enabled.";
+        errorMessage = "Entrar com e-mail e senha não está ativado.";
         break;
       default:
-        errorMessage = "An undefined Error happened.";
+        errorMessage = "Ocorreu um erro indefinido.";
     }
     Fluttertoast.showToast(msg: errorMessage);
     debugPrint(error.code);
