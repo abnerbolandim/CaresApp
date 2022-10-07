@@ -57,6 +57,36 @@ class _BuildBodyCaresPageState extends State<BuildBodyCaresPage> {
               height: 20,
             ),
 
+            TextFormField(
+              autofocus: false,
+              controller: CaresInputs.caresLocationEditingController,
+              keyboardType: TextInputType.name,
+              validator: (value) {
+                RegExp regex = RegExp(r'^.{3,}$');
+                if (value!.isEmpty) {
+                  return ("First Name cannot be Empty");
+                }
+                if (!regex.hasMatch(value)) {
+                  return ("Enter Valid name(Min. 3 Character)");
+                }
+                return null;
+              },
+              onSaved: (value) {
+                CaresInputs.caresNameEditingController.text = value!;
+              },
+              textInputAction: TextInputAction.next,
+              decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.map_outlined),
+                hintText: "Ex: SBO, Vista Alegre",
+                labelText: 'Cidade, Bairro',
+                border: OutlineInputBorder(),
+              ),
+            ),
+
+            const SizedBox(
+              height: 20,
+            ),
+
             //telefone
             IntlPhoneField(
               validator: (value) {
@@ -65,7 +95,7 @@ class _BuildBodyCaresPageState extends State<BuildBodyCaresPage> {
                 }
                 return null;
               },
-              controller: CaresInputs.caresTelefoneController,
+              controller: CaresInputs.caresTelefoneEditingController,
               showCountryFlag: false,
               showDropdownIcon: false,
               initialValue: countryDial,
@@ -184,6 +214,7 @@ class _BuildBodyCaresPageState extends State<BuildBodyCaresPage> {
                   fontWeight: FontWeight.bold,
                 ),
                 backgroundColor: const Color.fromRGBO(0, 101, 156, 1),
+                // ignore: deprecated_member_use
                 primary: Colors.white,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 120, vertical: 25),
@@ -207,6 +238,10 @@ class _BuildBodyCaresPageState extends State<BuildBodyCaresPage> {
 
 class CaresInputs {
   static TextEditingController caresNameEditingController =
+      TextEditingController();
+  static TextEditingController caresLocationEditingController =
+      TextEditingController();
+  static TextEditingController caresTelefoneEditingController =
       TextEditingController();
   static TextEditingController caresEmailController = TextEditingController();
   static TextEditingController caresPasswordController =
