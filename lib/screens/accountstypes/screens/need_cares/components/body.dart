@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/screens/accountstypes/screens/verify_pages/verifyn_pages.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
-import '../../verify_pages/verify_pages.dart';
 import '../need_page.dart';
 
 class BuildBodyNeedCarePage extends StatefulWidget {
@@ -29,7 +29,7 @@ class _BuildBodyNeedCarePageState extends State<BuildBodyNeedCarePage> {
             //nome
             TextFormField(
               autofocus: false,
-              controller: CaresInputs.caresNameEditingController,
+              controller: NeedInputs.needNameEditingController,
               keyboardType: TextInputType.name,
               validator: (value) {
                 RegExp regex = RegExp(r'^.{3,}$');
@@ -42,7 +42,7 @@ class _BuildBodyNeedCarePageState extends State<BuildBodyNeedCarePage> {
                 return null;
               },
               onSaved: (value) {
-                CaresInputs.caresNameEditingController.text = value!;
+                NeedInputs.needNameEditingController.text = value!;
               },
               textInputAction: TextInputAction.next,
               decoration: const InputDecoration(
@@ -65,7 +65,7 @@ class _BuildBodyNeedCarePageState extends State<BuildBodyNeedCarePage> {
                 }
                 return null;
               },
-              controller: CaresInputs.caresTelefoneController,
+              controller: NeedInputs.needTelefoneController,
               showCountryFlag: false,
               showDropdownIcon: false,
               initialValue: countryDial,
@@ -91,7 +91,7 @@ class _BuildBodyNeedCarePageState extends State<BuildBodyNeedCarePage> {
             //email
             TextFormField(
               autofocus: false,
-              controller: CaresInputs.caresEmailController,
+              controller: NeedInputs.needEmailController,
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
                 if (value!.isEmpty) {
@@ -105,7 +105,7 @@ class _BuildBodyNeedCarePageState extends State<BuildBodyNeedCarePage> {
                 return null;
               },
               onSaved: (value) {
-                CaresInputs.caresNameEditingController.text = value!;
+                NeedInputs.needNameEditingController.text = value!;
               },
               textInputAction: TextInputAction.next,
               decoration: const InputDecoration(
@@ -123,7 +123,7 @@ class _BuildBodyNeedCarePageState extends State<BuildBodyNeedCarePage> {
             //senha
             TextFormField(
               autofocus: false,
-              controller: CaresInputs.caresPasswordController,
+              controller: NeedInputs.needPasswordController,
               obscureText: true,
               validator: (value) {
                 RegExp regex = RegExp(r'^.{6,}$');
@@ -136,7 +136,7 @@ class _BuildBodyNeedCarePageState extends State<BuildBodyNeedCarePage> {
                 return null;
               },
               onSaved: (senha) {
-                CaresInputs.caresNameEditingController.text = senha!;
+                NeedInputs.needNameEditingController.text = senha!;
               },
               textInputAction: TextInputAction.next,
               decoration: const InputDecoration(
@@ -153,17 +153,17 @@ class _BuildBodyNeedCarePageState extends State<BuildBodyNeedCarePage> {
             //senha dnv
             TextFormField(
               autofocus: false,
-              controller: CaresInputs.caresConfirmPasswordController,
+              controller: NeedInputs.needConfirmPasswordController,
               obscureText: true,
               validator: (value) {
-                if (CaresInputs.caresConfirmPasswordController.text !=
-                    CaresInputs.caresPasswordController.text) {
+                if (NeedInputs.needConfirmPasswordController.text !=
+                    NeedInputs.needPasswordController.text) {
                   return "A senha não corresponde";
                 }
                 return null;
               },
               onSaved: (value) {
-                CaresInputs.caresConfirmPasswordController.text = value!;
+                NeedInputs.needConfirmPasswordController.text = value!;
               },
               textInputAction: TextInputAction.done,
               decoration: const InputDecoration(
@@ -193,7 +193,7 @@ class _BuildBodyNeedCarePageState extends State<BuildBodyNeedCarePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const VerifyPage(),
+                    builder: (context) => const VerifynPage(),
                   ),
                 );
               },
@@ -206,14 +206,12 @@ class _BuildBodyNeedCarePageState extends State<BuildBodyNeedCarePage> {
   }
 }
 
-class CaresInputs {
-  static TextEditingController caresNameEditingController =
+class NeedInputs {
+  static TextEditingController needNameEditingController =
       TextEditingController();
-  static TextEditingController caresEmailController = TextEditingController();
-  static TextEditingController caresPasswordController =
+  static TextEditingController needEmailController = TextEditingController();
+  static TextEditingController needPasswordController = TextEditingController();
+  static TextEditingController needConfirmPasswordController =
       TextEditingController();
-  static TextEditingController caresConfirmPasswordController =
-      TextEditingController();
-  static TextEditingController caresTelefoneController =
-      TextEditingController();
+  static TextEditingController needTelefoneController = TextEditingController();
 }
