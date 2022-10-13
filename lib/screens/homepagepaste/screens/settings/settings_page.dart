@@ -6,7 +6,6 @@ import 'package:health_care/screens/homepagepaste/screens/settings/screens/switc
 import '../../../../model/user_model.dart';
 
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
-import '../../home_page.dart';
 import '../profile_page/profile_page.dart';
 import 'screens/changepassword_page.dart';
 

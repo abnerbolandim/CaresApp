@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:health_care/model/user_model.dart';
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
 import 'package:health_care/screens/homepagepaste/screens/search_page/search_page.dart';
@@ -516,6 +515,7 @@ class ConteudoMeio extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class informacoesConta extends StatelessWidget {
   const informacoesConta({
     Key? key,

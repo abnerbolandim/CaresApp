@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../settings_page.dart';
-
 class SwitchNotificationPage extends StatefulWidget {
   static const String id = 'sample1';
   static const String title = 'Sample1';
