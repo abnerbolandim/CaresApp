@@ -50,12 +50,12 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
             TextButton(
               style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
                 textStyle: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
                 backgroundColor: const Color.fromRGBO(0, 101, 156, 1),
-                primary: Colors.white,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 100, vertical: 30),
               ),

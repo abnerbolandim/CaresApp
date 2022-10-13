@@ -11,6 +11,7 @@ class RegisterPage extends StatefulWidget {
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
+// ignore: non_constant_identifier_names
 bool Cuidador = false;
 
 class _RegisterPageState extends State<RegisterPage> {
