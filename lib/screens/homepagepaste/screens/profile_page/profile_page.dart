@@ -296,30 +296,44 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ),
                                 ),
                                 const SizedBox(height: 20),
-                                Material(
-                                  elevation: 4,
-                                  shadowColor: Colors.grey,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      hintText: 'AMERICANA - SP',
-                                      hintStyle: const TextStyle(
-                                        letterSpacing: 3,
-                                        color: Colors.black54,
-                                        fontWeight: FontWeight.bold,
+                                loggedInUser.location != null
+                                    ? Column(
+                                        children: [
+                                          Material(
+                                            elevation: 4,
+                                            shadowColor: Colors.grey,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            child: TextField(
+                                              decoration: InputDecoration(
+                                                hintText:
+                                                    '${loggedInUser.location}',
+                                                hintStyle: const TextStyle(
+                                                  letterSpacing: 3,
+                                                  color: Colors.black54,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                                fillColor: Colors.white30,
+                                                filled: true,
+                                                border: OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                    borderSide:
+                                                        BorderSide.none),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 20,
+                                          ),
+                                        ],
+                                      )
+                                    : SizedBox(
+                                        height: 0,
                                       ),
-                                      fillColor: Colors.white30,
-                                      filled: true,
-                                      border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10.0),
-                                          borderSide: BorderSide.none),
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(height: 20),
                                 Material(
                                   elevation: 4,
                                   shadowColor: Colors.grey,
@@ -366,7 +380,7 @@ class _ProfilePageState extends State<ProfilePage> {
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: const Color.fromARGB(255, 73, 93, 184),
+            backgroundColor: const Color.fromARGB(255, 73, 93, 184),
             minimumSize: const Size(0, 45),
           ),
           onPressed: () {
