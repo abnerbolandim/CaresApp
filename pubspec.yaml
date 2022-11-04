@@ -75,9 +75,9 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/images/logo.jpg"
-  adaptive_icon_background: "#00fcd8"
-  adaptive_icon_foreground: "assets/images/logo.jpg" 
+  image_path: "assets/images/logo3.png"
+  adaptive_icon_background: "#6AAAFF"
+  adaptive_icon_foreground: "assets/images/logo3.png" 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
