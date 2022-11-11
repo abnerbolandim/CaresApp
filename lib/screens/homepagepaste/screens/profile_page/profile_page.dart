@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:health_care/model/user_model.dart';
 import 'package:path/path.dart';
 
@@ -86,15 +87,17 @@ class _ProfilePageState extends State<ProfilePage> {
                     children: [
                       Column(
                         children: [
-                          const Padding(
+                          Padding(
                             padding: EdgeInsets.all(20),
                             child: Text(
                               'Perfil de Usuário',
-                              style: TextStyle(
-                                fontSize: 35,
-                                letterSpacing: 1.5,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
+                              style: GoogleFonts.sen(
+                                textStyle: TextStyle(
+                                  fontSize: 35,
+                                  letterSpacing: 1.5,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                           ),
@@ -386,11 +389,14 @@ class _ProfilePageState extends State<ProfilePage> {
           onPressed: () {
             Fluttertoast.showToast(msg: 'Perfil atualizado!');
           },
-          child: const Text(
+          child: Text(
             "Atualizar",
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
+            style: GoogleFonts.sen(
+              textStyle: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+                color: Colors.white,
+              ),
             ),
           ),
         ),

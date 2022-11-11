@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:health_care/screens/creatorpages/loginpages/sign_in.dart';
 import '../chooseregistrationpages/createaccount_page.dart';
 import '../reset_page.dart';
@@ -30,12 +31,14 @@ class _LoginPageState extends State<LoginPage> {
         ),
         title: RichText(
           textAlign: TextAlign.center,
-          text: const TextSpan(
+          text: TextSpan(
             text: 'Entre ',
-            style: TextStyle(
-              fontSize: 35,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
+            style: GoogleFonts.sen(
+              textStyle: TextStyle(
+                fontSize: 35,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             children: [
               TextSpan(
@@ -68,10 +71,14 @@ class _LoginPageState extends State<LoginPage> {
                       width: 280,
                     ),
 
-                    const Text(
+                    Text(
                       'OLÁ NOVAMENTE',
-                      style:
-                          TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.sen(
+                        textStyle: TextStyle(
+                          fontSize: 35,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       textAlign: TextAlign.center,
                     ),
 
@@ -79,10 +86,12 @@ class _LoginPageState extends State<LoginPage> {
                       height: 15,
                     ),
 
-                    const Text(
+                    Text(
                       'Bem-vindo de volta, você nos fez falta!',
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                      style: GoogleFonts.sen(
+                        textStyle: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w500),
+                      ),
                       textAlign: TextAlign.center,
                     ),
 
@@ -168,7 +177,15 @@ class _LoginPageState extends State<LoginPage> {
                           );
                         }
                       },
-                      child: const Text('Entrar'),
+                      child: Text(
+                        'Entrar',
+                        style: GoogleFonts.sen(
+                          textStyle: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
                     ),
 
                     Row(

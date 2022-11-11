@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:health_care/model/user_model.dart';
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
 import 'package:health_care/screens/homepagepaste/screens/search_page/search_page.dart';
@@ -85,17 +86,11 @@ class _HomePageState extends State<HomePage> {
                 child: CircleAvatar(
                   backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                   radius: 20.0,
-                  child: uImage != null
-                      ? CircleAvatar(
-                          radius: 80.0,
-                          backgroundImage: FileImage(uImage!),
-                        )
-                      : const CircleAvatar(
-                          radius: 80.0,
-                          backgroundImage: NetworkImage(
-                              "https://fopiess.org.br/wp-content/uploads/2018/01/default1.jpg"),
-                          backgroundColor: Colors.transparent,
-                        ),
+                  child: CircleAvatar(
+                    radius: 80.0,
+                    child: Image.asset("./assets/images/user.png"),
+                    backgroundColor: Colors.transparent,
+                  ),
                 ),
               ),
             ),
@@ -190,9 +185,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Text(
                         'Ajudante',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
+                        style: GoogleFonts.sen(
+                          textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
                         ),
                       )
                     ],
@@ -397,11 +394,19 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.all(15.0),
             child: Icon(Icons.search),
           ),
-          const Expanded(
+          Expanded(
             child: TextField(
               decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Procure uma localização..."),
+                border: InputBorder.none,
+                hintText: "Procure uma localização...",
+                hintStyle: GoogleFonts.sen(
+                  textStyle: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ),
             ),
           ),
           Padding(

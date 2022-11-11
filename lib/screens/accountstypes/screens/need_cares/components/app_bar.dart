@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 AppBar buildAppBarNeedCarePage(BuildContext context) {
   return AppBar(
@@ -11,12 +12,14 @@ AppBar buildAppBarNeedCarePage(BuildContext context) {
     ),
     title: RichText(
       textAlign: TextAlign.center,
-      text: const TextSpan(
+      text: TextSpan(
         text: 'Crie uma nova\n',
-        style: TextStyle(
-          fontSize: 30,
-          color: Colors.black,
-          fontWeight: FontWeight.w500,
+        style: GoogleFonts.sen(
+          textStyle: TextStyle(
+            fontSize: 28,
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
+          ),
         ),
         children: [
           TextSpan(

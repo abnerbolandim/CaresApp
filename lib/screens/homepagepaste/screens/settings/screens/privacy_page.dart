@@ -45,8 +45,8 @@ class _PrivacyPageState extends State<PrivacyPage> {
               Text(
                 'Cares Política de Privacidade',
                 style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 35,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 30,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -78,7 +78,7 @@ class _PrivacyPageState extends State<PrivacyPage> {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 80,
+                height: 50,
               ),
               Text(
                 'Política de Privacidade | Termos de Serviço',

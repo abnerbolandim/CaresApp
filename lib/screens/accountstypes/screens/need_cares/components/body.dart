@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:health_care/screens/accountstypes/screens/verify_pages/verifyn_pages.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
@@ -197,7 +198,16 @@ class _BuildBodyNeedCarePageState extends State<BuildBodyNeedCarePage> {
                   ),
                 );
               },
-              child: const Text('Criar Conta'),
+              child: Text(
+                'Criar Conta',
+                style: GoogleFonts.sen(
+                  textStyle: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                  ),
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
           ],
         ),

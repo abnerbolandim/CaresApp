@@ -1,6 +1,7 @@
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:health_care/screens/homepagepaste/home_page.dart';
 
 import 'chooseregistrationpages/createaccount_page.dart';
@@ -50,12 +51,14 @@ class _ResetPageState extends State<ResetPage> {
                       children: [
                         RichText(
                           textAlign: TextAlign.center,
-                          text: const TextSpan(
+                          text: TextSpan(
                             text: 'Resetar ',
-                            style: TextStyle(
-                              fontSize: 35,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
+                            style: GoogleFonts.sen(
+                              textStyle: TextStyle(
+                                fontSize: 35,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             children: [
                               TextSpan(
@@ -134,7 +137,15 @@ class _ResetPageState extends State<ResetPage> {
                                     email: _resetEmailController.text.trim())
                                 .then((value) => Navigator.of(context).pop());
                           },
-                          child: const Text('Redefinir Senha'),
+                          child: Text(
+                            'Redefinir Senha',
+                            style: GoogleFonts.sen(
+                              textStyle: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
                         ),
 
                         const SizedBox(

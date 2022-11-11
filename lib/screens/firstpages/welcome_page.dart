@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
 
 import '../accountstypes/screens/cares_page/cares_page.dart';
@@ -24,22 +25,26 @@ class _WelcomePageState extends State<WelcomePage> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               'Seja bem-vindo ao\nCares',
-              style: TextStyle(
-                fontWeight: FontWeight.w800,
-                fontSize: 40,
+              style: GoogleFonts.sen(
+                textStyle: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 40,
+                ),
               ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(
               height: 15,
             ),
-            const Text(
+            Text(
               'O aplicativo voltado a cuidadores e\npessoas necessitadas de cuidados!',
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 20,
+              style: GoogleFonts.sen(
+                textStyle: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 20,
+                ),
               ),
               textAlign: TextAlign.center,
             ),
@@ -66,42 +71,64 @@ class _WelcomePageState extends State<WelcomePage> {
                   ),
                 );
               },
-              child: const Text('Vamos Começar!'),
+              child: Text(
+                'Vamos Começar!',
+                style: GoogleFonts.sen(
+                  textStyle: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                  ),
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
           ],
         ),
       ),
-      bottomSheet: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            'Você é um Cuidador?',
+      bottomSheet: bottomCliqueAqui(),
+    );
+  }
+}
+
+class bottomCliqueAqui extends StatelessWidget {
+  const bottomCliqueAqui({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          'Você é um Cuidador?',
+          style: GoogleFonts.sen(
+            textStyle: TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        const SizedBox(
+          width: 2,
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const CaresPage(),
+              ),
+            );
+          },
+          child: const Text(
+            'Clique Aqui!',
             style: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(
-            width: 2,
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const CaresPage(),
-                ),
-              );
-            },
-            child: const Text(
-              'Clique Aqui!',
-              style: TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:health_care/screens/creatorpages/registerpages/register_page.dart';
 
 import '../../accountstypes/screens/cares_page/cares_page.dart';
+import '../../firstpages/welcome_page.dart';
 import '../loginpages/login_page.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -69,7 +71,16 @@ class _CreateAccountState extends State<CreateAccount> {
                   ),
                 );
               },
-              child: const Text('Crie Uma Conta'),
+              child: Text(
+                'Crie Uma Conta',
+                style: GoogleFonts.sen(
+                  textStyle: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                  ),
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -95,43 +106,21 @@ class _CreateAccountState extends State<CreateAccount> {
                   ),
                 );
               },
-              child: const Text('Entrar'),
+              child: Text(
+                'Entrar',
+                style: GoogleFonts.sen(
+                  textStyle: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                  ),
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
           ],
         ),
       ),
-      bottomSheet: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            'Você é um Cuidador?',
-            style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(
-            width: 2,
-          ),
-          TextButton(
-            style: TextButton.styleFrom(
-              textStyle: const TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const CaresPage(),
-                ),
-              );
-            },
-            child: const Text('Clique Aqui!'),
-          ),
-        ],
-      ),
+      bottomSheet: bottomCliqueAqui(),
     );
   }
 }

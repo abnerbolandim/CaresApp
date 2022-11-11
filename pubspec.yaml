@@ -63,7 +63,9 @@ dependencies:
   pin_code_fields: ^7.4.0
 
   #URL
-  url_launcher: ^6.1.5 
+  url_launcher: ^6.1.5
+  google_fonts: ^3.0.1
+
 
 
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:health_care/screens/creatorpages/chooseregistrationpages/createaccount_page.dart';
 
 import '../../accountstypes/screens/cares_page/cares_page.dart';
@@ -33,26 +34,30 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
         title: RichText(
           textAlign: TextAlign.center,
-          text: const TextSpan(
+          text: TextSpan(
             text: 'Escolha ',
-            style: TextStyle(
-              fontSize: 25,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+            style: GoogleFonts.sen(
+              textStyle: TextStyle(
+                fontSize: 23,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             children: [
               TextSpan(
                 text: 'o que pretende ser\nno APP Cares',
-                style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
+                style: GoogleFonts.sen(
+                  textStyle: TextStyle(
+                    fontSize: 23,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ],
           ),
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: Color.fromARGB(255, 73, 93, 184),
         centerTitle: true,
       ),
       body: Center(
@@ -62,8 +67,9 @@ class _RegisterPageState extends State<RegisterPage> {
             children: [
               SizedBox(
                 width: maxWidth * 0.90,
+                height: maxHeight * 0.38,
                 child: Material(
-                  color: Colors.blue,
+                  color: Color.fromARGB(255, 73, 93, 184),
                   elevation: 8,
                   borderRadius: BorderRadius.circular(28),
                   clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -107,8 +113,9 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               SizedBox(
                 width: maxWidth * 0.90,
+                height: maxHeight * 0.38,
                 child: Material(
-                  color: Colors.blue,
+                  color: Color.fromARGB(255, 73, 93, 184),
                   elevation: 8,
                   borderRadius: BorderRadius.circular(28),
                   clipBehavior: Clip.antiAliasWithSaveLayer,

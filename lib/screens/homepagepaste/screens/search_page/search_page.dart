@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -39,10 +40,12 @@ class _SearchPageState extends State<SearchPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Ache um cuidador',
-          style: TextStyle(
-              fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold),
+          style: GoogleFonts.sen(
+            textStyle: TextStyle(
+                fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold),
+          ),
         ),
         elevation: 0,
         backgroundColor: const Color.fromARGB(255, 73, 93, 184),
@@ -79,7 +82,14 @@ class _SearchPageState extends State<SearchPage> {
                     child: TextField(
                       controller: _search,
                       decoration: InputDecoration(
-                          hintText: "Pesquise",
+                          hintText: "Pesquise aqui...",
+                          hintStyle: GoogleFonts.sen(
+                            textStyle: TextStyle(
+                              fontSize: 17,
+                              color: Color.fromARGB(255, 115, 115, 115),
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           )),
@@ -95,7 +105,12 @@ class _SearchPageState extends State<SearchPage> {
                     primary: const Color.fromARGB(255, 73, 93, 184),
                   ),
                   onPressed: onSearch,
-                  child: Text('Buscar'),
+                  child: Text(
+                    'Buscar',
+                    style: GoogleFonts.sen(
+                        textStyle: TextStyle(
+                            fontWeight: FontWeight.w500, fontSize: 18)),
+                  ),
                 ),
                 SizedBox(
                   height: size.height / 30,
