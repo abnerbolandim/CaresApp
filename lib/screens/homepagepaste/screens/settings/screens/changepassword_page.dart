@@ -1,6 +1,7 @@
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:health_care/screens/homepagepaste/home_page.dart';
 
 class ChangePassword extends StatefulWidget {
@@ -40,7 +41,7 @@ class _ChangePasswordState extends State<ChangePassword> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SingleChildScrollView(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -49,12 +50,14 @@ class _ChangePasswordState extends State<ChangePassword> {
                       children: [
                         RichText(
                           textAlign: TextAlign.center,
-                          text: const TextSpan(
+                          text: TextSpan(
                             text: 'Alterar ',
-                            style: TextStyle(
-                              fontSize: 35,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                            style: GoogleFonts.sen(
+                              textStyle: TextStyle(
+                                fontSize: 32,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             children: [
                               TextSpan(
@@ -70,13 +73,13 @@ class _ChangePasswordState extends State<ChangePassword> {
                         ),
 
                         const SizedBox(
-                          height: 30,
+                          height: 50,
                         ),
 
                         const Text(
                           'Informe o e-mail utilizado na sua conta:',
                           style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w500),
+                              fontSize: 19, fontWeight: FontWeight.w500),
                           textAlign: TextAlign.center,
                         ),
 
@@ -112,7 +115,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                         ),
 
                         const SizedBox(
-                          height: 25,
+                          height: 15,
                         ),
 
                         TextButton(
@@ -123,7 +126,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                               fontWeight: FontWeight.bold,
                             ),
                             backgroundColor:
-                                const Color.fromRGBO(0, 101, 156, 1),
+                                const Color.fromARGB(255, 73, 93, 184),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 95, vertical: 20),
                           ),
@@ -133,7 +136,16 @@ class _ChangePasswordState extends State<ChangePassword> {
                                     email: _resetEmailController.text.trim())
                                 .then((value) => Navigator.of(context).pop());
                           },
-                          child: const Text('Redefinir Senha'),
+                          child: Text(
+                            'Redefinir Senha',
+                            style: GoogleFonts.sen(
+                              textStyle: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
                         ),
 
                         const SizedBox(

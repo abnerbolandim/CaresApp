@@ -113,10 +113,12 @@ class _HomePageState extends State<HomePage> {
               width: size.width / 1.1,
               child: Text(
                 "Olá, \n${loggedInUser.name}",
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w500,
+                style: GoogleFonts.sen(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black87,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
@@ -529,31 +531,34 @@ class informacoesConta extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return UserAccountsDrawerHeader(
-        decoration: const BoxDecoration(
-          color: Color.fromRGBO(0, 185, 228, 1),
+      decoration: const BoxDecoration(
+        color: Color.fromRGBO(0, 185, 228, 1),
+      ),
+      currentAccountPicture: CircleAvatar(
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        radius: 85.0,
+        child: uImage != null
+            ? CircleAvatar(
+                radius: 80.0,
+                backgroundImage: FileImage(uImage!),
+              )
+            : const CircleAvatar(
+                radius: 80.0,
+                backgroundImage: NetworkImage(
+                    "https://fopiess.org.br/wp-content/uploads/2018/01/default1.jpg"),
+                backgroundColor: Colors.transparent,
+              ),
+      ),
+      accountName: Text(
+        '${loggedInUser.name}',
+        style: GoogleFonts.sen(
+          textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        currentAccountPicture: CircleAvatar(
-          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-          radius: 85.0,
-          child: uImage != null
-              ? CircleAvatar(
-                  radius: 80.0,
-                  backgroundImage: FileImage(uImage!),
-                )
-              : const CircleAvatar(
-                  radius: 80.0,
-                  backgroundImage: NetworkImage(
-                      "https://fopiess.org.br/wp-content/uploads/2018/01/default1.jpg"),
-                  backgroundColor: Colors.transparent,
-                ),
-        ),
-        accountName: Text(
-          '${loggedInUser.name}',
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        accountEmail: Text(
-          '${loggedInUser.email}',
-          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
-        ));
+      ),
+      accountEmail: Text('${loggedInUser.email}',
+          style: GoogleFonts.sen(
+            textStyle: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+          )),
+    );
   }
 }

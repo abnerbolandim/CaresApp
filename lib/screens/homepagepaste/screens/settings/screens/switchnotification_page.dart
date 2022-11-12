@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SwitchNotificationPage extends StatefulWidget {
   static const String id = 'sample1';
@@ -41,23 +42,27 @@ class _SwitchNotificationPageState extends State<SwitchNotificationPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
+          Text(
             'Opcões do Aplicativo',
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 73, 93, 184),
+            style: GoogleFonts.sen(
+              textStyle: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 73, 93, 184),
+              ),
             ),
           ),
           const SizedBox(
             height: 45,
           ),
           SwitchListTile(
-            title: const Text(
+            title: Text(
               'Selecione tudo',
-              style: TextStyle(
-                  color: Color.fromARGB(255, 73, 93, 184),
-                  fontWeight: FontWeight.w600),
+              style: GoogleFonts.sen(
+                textStyle: TextStyle(
+                    color: Color.fromARGB(255, 73, 93, 184),
+                    fontWeight: FontWeight.w600),
+              ),
             ),
             secondary: const Icon(
               Icons.all_inbox_outlined,
@@ -76,9 +81,11 @@ class _SwitchNotificationPageState extends State<SwitchNotificationPage> {
             height: 15,
           ),
           SwitchListTile(
-            title: const Text(
+            title: Text(
               'Notificações tela inicial',
-              style: TextStyle(fontWeight: FontWeight.w600),
+              style: GoogleFonts.sen(
+                textStyle: TextStyle(fontWeight: FontWeight.w600),
+              ),
             ),
             secondary: const Icon(Icons.home_outlined), // Point to Check
             value: _toggled1,
@@ -90,11 +97,13 @@ class _SwitchNotificationPageState extends State<SwitchNotificationPage> {
             height: 15,
           ),
           SwitchListTile(
-            title: const Text(
+            title: Text(
               'Notificações de mensagem',
-              style: TextStyle(
-                  color: Color.fromARGB(255, 73, 93, 184),
-                  fontWeight: FontWeight.w600),
+              style: GoogleFonts.sen(
+                textStyle: TextStyle(
+                    color: Color.fromARGB(255, 73, 93, 184),
+                    fontWeight: FontWeight.w600),
+              ),
             ),
             secondary: const Icon(
               Icons.chat_bubble_outline_outlined,
@@ -109,9 +118,11 @@ class _SwitchNotificationPageState extends State<SwitchNotificationPage> {
             height: 15,
           ),
           SwitchListTile(
-            title: const Text(
+            title: Text(
               'Notificações de atualizações',
-              style: TextStyle(fontWeight: FontWeight.w600),
+              style: GoogleFonts.sen(
+                textStyle: TextStyle(fontWeight: FontWeight.w600),
+              ),
             ),
             secondary: const Icon(Icons.update_outlined), // Point to Check
             value: _toggled3,
@@ -123,11 +134,13 @@ class _SwitchNotificationPageState extends State<SwitchNotificationPage> {
             height: 15,
           ),
           SwitchListTile(
-            title: const Text(
+            title: Text(
               'Notificações de Cuidadores/Necessitados',
-              style: TextStyle(
-                  color: Color.fromARGB(255, 73, 93, 184),
-                  fontWeight: FontWeight.w600),
+              style: GoogleFonts.sen(
+                textStyle: TextStyle(
+                    color: Color.fromARGB(255, 73, 93, 184),
+                    fontWeight: FontWeight.w600),
+              ),
             ),
             secondary: const Icon(
               Icons.medication_outlined,
