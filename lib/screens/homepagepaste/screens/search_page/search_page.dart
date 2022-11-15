@@ -47,6 +47,7 @@ class _SearchPageState extends State<SearchPage> {
                 fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
+        centerTitle: true,
         elevation: 0,
         backgroundColor: const Color.fromARGB(255, 73, 93, 184),
         leading: IconButton(

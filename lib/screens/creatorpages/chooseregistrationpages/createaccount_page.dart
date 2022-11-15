@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:health_care/screens/creatorpages/registerpages/register_page.dart';
 
-import '../../accountstypes/screens/cares_page/cares_page.dart';
 import '../../firstpages/welcome_page.dart';
 import '../loginpages/login_page.dart';
 

@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                       style: GoogleFonts.sen(
                         textStyle: TextStyle(
                           fontSize: 35,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       textAlign: TextAlign.center,

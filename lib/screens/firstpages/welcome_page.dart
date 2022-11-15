@@ -29,7 +29,7 @@ class _WelcomePageState extends State<WelcomePage> {
               'Seja bem-vindo ao\nCares',
               style: GoogleFonts.sen(
                 textStyle: TextStyle(
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.bold,
                   fontSize: 40,
                 ),
               ),
@@ -90,6 +90,7 @@ class _WelcomePageState extends State<WelcomePage> {
   }
 }
 
+// ignore: camel_case_types
 class bottomCliqueAqui extends StatelessWidget {
   const bottomCliqueAqui({
     Key? key,
