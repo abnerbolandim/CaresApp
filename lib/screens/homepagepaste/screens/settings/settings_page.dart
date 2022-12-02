@@ -20,6 +20,8 @@ User? user = FirebaseAuth.instance.currentUser;
 UserModel loggedInUser = UserModel();
 
 class _SettingsPageState extends State<SettingsPage> {
+  User? user = FirebaseAuth.instance.currentUser;
+
   @override
   void initState() {
     super.initState();
@@ -81,7 +83,7 @@ class _SettingsPageState extends State<SettingsPage> {
                               );
                             }),
                             title: Text(
-                              '${loggedInUser.name}',
+                              "${loggedInUser.name}",
                               style: const TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500),
