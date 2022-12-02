@@ -155,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
 
                     TextButton(
                       style: TextButton.styleFrom(
-                        foregroundColor: Colors.white,
+                        primary: Colors.white,
                         textStyle: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

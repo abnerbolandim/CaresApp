@@ -121,7 +121,7 @@ class _ResetPageState extends State<ResetPage> {
 
                         TextButton(
                           style: TextButton.styleFrom(
-                            foregroundColor: Colors.white,
+                            primary: Colors.white,
                             textStyle: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,

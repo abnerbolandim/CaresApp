@@ -383,7 +383,7 @@ class _ProfilePageState extends State<ProfilePage> {
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromARGB(255, 73, 93, 184),
+            primary: const Color.fromARGB(255, 73, 93, 184),
             minimumSize: const Size(0, 45),
           ),
           onPressed: () {

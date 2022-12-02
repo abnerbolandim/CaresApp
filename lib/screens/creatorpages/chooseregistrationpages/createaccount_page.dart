@@ -86,7 +86,7 @@ class _CreateAccountState extends State<CreateAccount> {
             ),
             TextButton(
               style: TextButton.styleFrom(
-                foregroundColor: const Color.fromRGBO(0, 101, 156, 1),
+                primary: const Color.fromRGBO(0, 101, 156, 1),
                 textStyle: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
